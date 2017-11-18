@@ -100,7 +100,7 @@ Doing so will open up those native apis to your plugin :)
 Take a look at these existing plugins for how that can be done very simply:
 
 * [nativescript-cardview](https://github.com/bradmartin/nativescript-cardview/tree/master/platforms)
-* [nativescript-floatingactionbutton](https://github.com/bradmartin/nativescript-floatingactionbutton/tree/master/platforms)
+* [nativescript-floatingactionbutton](https://github.com/bradmartin/nativescript-floatingactionbutton/tree/master/src/platforms)
 
 ### Clean plugin and demo files
 

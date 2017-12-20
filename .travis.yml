@@ -10,7 +10,7 @@ matrix:
       script: cd src && npm run ci.tslint && cd ../demo && npm run ci.tslint
     - stage: "Build and Test"
       env: 
-        - BuildAndroid="25"
+        - BuildAndroid="26"
       language: android
       os: linux
       jdk: oraclejdk8
@@ -20,9 +20,9 @@ matrix:
         - travis_wait travis_retry tns build android
     - os: osx
       env: 
-        - BuildiOS="10.3"
-        - Xcode="8.3"
-      osx_image: xcode8.3
+        - BuildiOS="11"
+        - Xcode="9.2"
+      osx_image: xcode9.2
       language: node_js 
       node_js: "6"
       jdk: oraclejdk8
@@ -49,7 +49,7 @@ matrix:
       language: node_js
       node_js: "6"
       jdk: oraclejdk8
-      osx_image: xcode8.3
+      osx_image: xcode9.2
       before_script:
         - cd seed-tests && npm i
       script: travis_wait travis_retry npm run test.ios
@@ -58,8 +58,9 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tools-25.0.2
-    - android-25
+    - build-tools-26.0.1
+    - android-23
+    - android-26
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-21
 

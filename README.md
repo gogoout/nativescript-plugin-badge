@@ -24,7 +24,7 @@
 ## <a name='TLDR'></a>TL;DR
 The NativeScript plugin seed is built to be used as a starting point by NativeScript plugin developers. To bootstrap your plugin development execute the following:
 
-1. `git clone https://github.com/NativeScript/nativescript-plugin-seed nativescript-yourplugin` where `nativescript--yourplugin` is the name of your plugin.
+1. `git clone https://github.com/NativeScript/nativescript-plugin-seed nativescript-yourplugin` where `nativescript-yourplugin` is the name of your plugin.
 2. `cd nativescript-yourplugin/src`
 3. `npm run postclone`
 4. `npm run demo.ios` or `npm run demo.android` to run the demo.
@@ -62,7 +62,7 @@ What does the seed give you out of the box?
 
 ### <a name='Gettingstarted'></a>Getting started
 
-1. Open a command prompt/terminal and execute `git clone https://github.com/NativeScript/nativescript-plugin-seed nativescript-yourplugin` to clone the plugin seed repository into the `nativescript-yourplugin` folder  where `nativescript--yourplugin` is the name of your plugin..
+1. Open a command prompt/terminal and execute `git clone https://github.com/NativeScript/nativescript-plugin-seed nativescript-yourplugin` to clone the plugin seed repository into the `nativescript-yourplugin` folder  where `nativescript-yourplugin` is the name of your plugin..
 2. Open a command prompt/terminal and navigate to `nativescript-yourplugin/src` folder using `cd nativescript-yourplugin/src`
 3. Execute `npm run postclone` to:
     * configure your github username - it will be changed in the package.json for you

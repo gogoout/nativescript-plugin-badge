@@ -18,6 +18,8 @@
     - [Publish to NPM](#publish-to-npm)
     - [TravisCI](#travisci)
     - [Referring tns-core-modules in the Plugin](#referring-tns-core-modules-in-the-plugin)
+- [Contribute](#contribute)
+- [Get Help](#get-help)
 
 <!-- /TOC -->
 
@@ -194,3 +196,9 @@ import * as app from 'application';
 ````
 import * as app from 'tns-core-modules/application';
 ````
+
+## Contribute
+We love PRs! Check out the [contributing guidelines](CONTRIBUTING.md). If you want to contribute, but you are not sure where to start - look for issues labeled [`help wanted`](https://github.com/NativeScript/tns-core-modules-widgets/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).
+
+## Get Help
+Please, use [github issues](https://github.com/NativeScript/tns-core-modules-widgets/issues) strictly for [reporting bugs](CONTRIBUTING.md#reporting-bugs) or [requesting features](CONTRIBUTING.md#requesting-new-features). For general questions and support, check out the [NativeScript community forum](https://discourse.nativescript.org/) or ask our experts in [NativeScript community Slack channel](http://developer.telerik.com/wp-login.php?action=slack-invitation).

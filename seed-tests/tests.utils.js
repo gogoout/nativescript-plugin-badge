@@ -51,11 +51,12 @@ exports.copySeedDir = function copySeedDir(seedLocation, copyLocation, callback)
     rimraf.sync(copyLocation);
 
     ncp(seedLocation, copyLocation, {
-        filter: function (fileName) {
-            if (fileName.indexOf("seed-tests/" + constants.SEED_COPY_LOCATION) > -1 ||
-                fileName.indexOf("demo/node_modules") > -1 ||
-                fileName.indexOf("src/node_modules") > -1 ||
-                fileName.indexOf("demo/platforms") > -1) {
+        filter: function (fileName) {            
+            if ((fileName.indexOf("seed-tests") > -1 && fileName.indexOf(constants.SEED_COPY_LOCATION) > -1) ||
+                (fileName.indexOf("demo") > -1 && fileName.indexOf("node_modules") > -1)||
+                (fileName.indexOf("seed-tests") > -1 && fileName.indexOf("node_modules") > -1) ||
+                (fileName.indexOf("src") > -1 && fileName.indexOf("node_modules") > -1) ||
+                (fileName.indexOf("demo") > -1 && fileName.indexOf("platforms") > -1)) {
                 return false;
             }
 

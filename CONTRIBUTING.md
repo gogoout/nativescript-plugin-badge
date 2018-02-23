@@ -61,7 +61,6 @@ git checkout -b <my-fix-branch> master
     - Rebase your changes to the latest master: `git pull --rebase upstream master`.
     - Ensure all unit test are green. How?
          - Go to `seed-tests`
-         - Delete `seed-copy` if existing
          - Run `npm install`
          - Run `npm run test.ios` or `npm run test.android`
     - Ensure your changes pass tslint validation. (run `npm run tslint` in the root of the repo).

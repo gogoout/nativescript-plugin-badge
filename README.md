@@ -27,8 +27,7 @@ The NativeScript plugin seed is built to be used as a starting point by NativeSc
 1. `git clone https://github.com/NativeScript/nativescript-plugin-seed nativescript-yourplugin` where `nativescript-yourplugin` is the name of your plugin.
 2. `cd nativescript-yourplugin/src`
 3. `npm run postclone`
-4. `npm run demo.ios` or `npm run demo.android` to run the demo.
-5. In another command prompt/terminal `npm run plugin.tscwatch` to watch typescript changes in the plugin and to automatically apply them in the demo.
+4. `npm run demo.ios` or `npm run demo.android` to run the demo. This will automatically watch for TypeScript changes also in your plugin and do the transpilation.
 
 ## <a name='LongDescription'></a>Long Description
 

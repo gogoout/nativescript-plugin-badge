@@ -133,25 +133,6 @@ describe('postclone', function () {
         });
     });
 
-    it('should create an npm link to the src folder', function (done) {
-        testUtils.getNpmLinks(function (links) {
-            var expectedLink = links.filter(function (item) {
-                return item.startsWith("nativescript-" + constants.TEST_PLUGIN_NAME + "@1.0.0") && item.endsWith(constants.SEED_COPY_LOCATION + "/src");
-            });
-
-            expect(expectedLink.length).toEqual(1);
-            done();
-        });
-    });
-
-    it('should link the plugin in the demo folder', function (done) {
-        var demoPluginPackageJson = constants.SEED_COPY_LOCATION + "/demo/node_modules/nativescript-" + constants.TEST_PLUGIN_NAME + "/package.json";
-        var srcPluginPackageJson = constants.SEED_COPY_LOCATION + "/src/package.json";
-
-        expect(fs.realpathSync(demoPluginPackageJson)).toEqual(fs.realpathSync(srcPluginPackageJson));
-        done();
-    });
-
     it('should prepare a working demo with passing tests', function (done) {
         var testsCommand = "cd " + constants.SEED_COPY_LOCATION + "/src && npm run test";
         testsCommand += testUtils.isAndroid() ? ".android" : ".ios";

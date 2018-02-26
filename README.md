@@ -2,26 +2,28 @@
 
 > This repo is heavily based on [@NathanWalker](https://github.com/NathanWalker)'s [Plugin Seed](https://github.com/NathanWalker/nativescript-plugin-seed). Thanks, Nathan!
 
-<!-- vscode-markdown-toc -->
-* [TL;DR](#TLDR)
-* [Long Description](#LongDescription)
-	* [What is NativeScript plugin seed?](#WhatisNativeScriptpluginseed)
-	* [Plugin folder structure](#Pluginfolderstructure)
-	* [Getting started](#Gettingstarted)
-		* [Development setup](#Developmentsetup)
-	* [Linking to CocoaPod or Android Arsenal plugins](#LinkingtoCocoaPodorAndroidArsenalplugins)
-	* [Unittesting](#Unittesting)
-	* [Publish to NPM](#PublishtoNPM)
-	* [TravisCI](#TravisCI)
-	* [Referring tns-core-modules in the Plugin](#ReferringtnscoremodulesinthePlugin)
+<!-- TOC depthFrom:2 -->
 
-<!-- vscode-markdown-toc-config
-	numbering=false
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc -->
+- [TL;DR](#tldr)
+- [Long Description](#long-description)
+    - [What is NativeScript plugin seed?](#what-is-nativescript-plugin-seed)
+    - [Plugin folder structure](#plugin-folder-structure)
+    - [Getting started](#getting-started)
+        - [Development setup](#development-setup)
+    - [Linking to CocoaPod or Android Arsenal plugins](#linking-to-cocoapod-or-android-arsenal-plugins)
+        - [Generating typings for iOS](#generating-typings-for-ios)
+        - [Generating typings for Android](#generating-typings-for-android)
+    - [Clean plugin and demo files](#clean-plugin-and-demo-files)
+    - [Unittesting](#unittesting)
+    - [Publish to NPM](#publish-to-npm)
+    - [TravisCI](#travisci)
+    - [Referring tns-core-modules in the Plugin](#referring-tns-core-modules-in-the-plugin)
+- [Contribute](#contribute)
+- [Get Help](#get-help)
 
-## <a name='TLDR'></a>TL;DR
+<!-- /TOC -->
+
+## TL;DR
 The NativeScript plugin seed is built to be used as a starting point by NativeScript plugin developers. To bootstrap your plugin development execute the following:
 
 1. `git clone https://github.com/NativeScript/nativescript-plugin-seed nativescript-yourplugin` where `nativescript-yourplugin` is the name of your plugin.
@@ -29,9 +31,9 @@ The NativeScript plugin seed is built to be used as a starting point by NativeSc
 3. `npm run postclone`
 4. `npm run demo.ios` or `npm run demo.android` to run the demo. This will automatically watch for TypeScript changes also in your plugin and do the transpilation.
 
-## <a name='LongDescription'></a>Long Description
+## Long Description
 
-### <a name='WhatisNativeScriptpluginseed'></a>What is NativeScript plugin seed?
+### What is NativeScript plugin seed?
 
 The NativeScript plugin seed is built to be used as a starting point by NativeScript plugin developers. It expands on several things [presented here](http://developer.telerik.com/featured/creating-nativescript-plugins-in-typescript/).
 What does the seed give you out of the box?
@@ -46,7 +48,7 @@ What does the seed give you out of the box?
 
 ![Plugin seed demo](https://github.com/NativeScript/nativescript-plugin-seed/blob/master/screenshots/demo.png?raw=true)
 
-### <a name='Pluginfolderstructure'></a>Plugin folder structure 
+### Plugin folder structure 
 
 |Folder/File name| Description
 |---|---|
@@ -59,7 +61,7 @@ What does the seed give you out of the box?
 |src/scripts|The postclone script run when you execute `npm run postclone`. Feel free to delete it after you have executed the postclone step from the [Getting started](#Gettingstarted) section|
 |publish|Contains a shell script to create and publish your package. Read more on creating a package and publishing in the [Publish to NPM](#Publishtonpm) section|
 
-### <a name='Gettingstarted'></a>Getting started
+### Getting started
 
 1. Open a command prompt/terminal and execute `git clone https://github.com/NativeScript/nativescript-plugin-seed nativescript-yourplugin` to clone the plugin seed repository into the `nativescript-yourplugin` folder  where `nativescript-yourplugin` is the name of your plugin..
 2. Open a command prompt/terminal and navigate to `nativescript-yourplugin/src` folder using `cd nativescript-yourplugin/src`
@@ -72,7 +74,7 @@ What does the seed give you out of the box?
 
 Now you can continue with the development of your plugin by using the [Development setup](#Developmentsetup) described below.
 
-#### <a name='Developmentsetup'></a>Development setup
+#### Development setup
 For easier development and debugging purposes continue with the following steps:
 
 1. Open a command prompt/terminal, navigate to `src` folder and run `npm run demo.ios` or `npm run demo.android` to run the demo.
@@ -82,7 +84,7 @@ Now go and make a change to your plugin. It will be automatically applied to the
 
 NOTE: If you need to use a native library in your plugin or do some changes in Info.plist/AndroidManifest.xml, these cannot be applied to the demo project only by npm link. In such scenario, you need to use `tns plugin add ../src` from the `demo` so that the native libraries and changes in the above-mentioned files are applied in the demo. Then you can link again the code of your plugin in the demo by using `npm run plugin.link` from the `src`.
 
-### <a name='LinkingtoCocoaPodorAndroidArsenalplugins'></a>Linking to CocoaPod or Android Arsenal plugins
+### Linking to CocoaPod or Android Arsenal plugins
 
 You will want to create these folders and files in the `src` folder in order to use native APIs:
 
@@ -101,6 +103,23 @@ Take a look at these existing plugins for how that can be done very simply:
 * [nativescript-cardview](https://github.com/bradmartin/nativescript-cardview/tree/master/platforms)
 * [nativescript-floatingactionbutton](https://github.com/bradmartin/nativescript-floatingactionbutton/tree/master/src/platforms)
 
+It's highly recommended to generate typings for the native libraries used in your plugin. By generating typings you'll be able to see what APIs exactly are exposed to Javascript and use them easily in your plugin code
+
+#### Generating typings for iOS
+
+- Run the command for typings generation as explained in the [documentation](https://docs.nativescript.org/runtimes/ios/how-to/Use-Native-Libraries#troubleshooting)
+- Open `demo/typings/x86_64` and copy the `d.ts` files that you plan to use in your plugin to `src\platforms\ios\typings`
+- Open  `src\references.d.ts` and add a reference to each of the files added to `src\platforms\ios\typings`
+
+**NOTE**: Swift APIs that are not exported to Objective-C are not supported. This means that you can only call APIs from JavaScript that are visible to the Objective-C runtime. This include all Objective-C APIs and only the subset of all Swift APIs that are exposed to Objective-C. So, to use a Swift API (class/function/method etc.) from NativeScript, first make sure that it can be used from Objective-C code. For more information which Swfit APIs can be exposed to Objective-C, see [here](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html#//apple_ref/doc/uid/TP40014216-CH4-ID53). 
+
+#### Generating typings for Android
+
+- Clone [Android DTS Generator repo](https://github.com/NativeScript/android-dts-generator)
+- Follow the steps in the [README](https://github.com/NativeScript/android-dts-generator/blob/master/README.md)
+- Copy the generated d.ts files in `src\platforms\android\typings`. Feel free to rename the generated files for readablity.
+- Open  `src\references.d.ts` and add a reference to each of the files added to `src\platforms\android\typings`
+
 ### Clean plugin and demo files
 
 Sometimes you may need to wipe away the `node_modules` and `demo/platforms` folders to reinstall them fresh.
@@ -115,7 +134,7 @@ Sometimes you may need to ensure plugin files are updated in the demo:
 
 * Run `npm run plugin.prepare` will do a fresh build of the plugin then remove itself from the demo and add it back for assurance.
 
-### <a name='Unittesting'></a>Unittesting
+### Unittesting
 The plugin seed automatically adds Jasmine-based unittest support to your plugin.
 Open `demo/app/tests/tests.js` and adjust its contents so the tests become meaningful in the context of your plugin and its features.
 
@@ -128,7 +147,7 @@ npm run test.ios
 npm run test.android
 ```
 
-### <a name='PublishtoNPM'></a>Publish to NPM
+### Publish to NPM
 
 When you have everything ready to publish:
 
@@ -139,13 +158,13 @@ If you just want to create a package, go to `publish` folder and execute `pack.s
 
 **NOTE**: To run bash script on Windows you can install [GIT SCM](https://git-for-windows.github.io/) and use Git Bash.
 
-### <a name='TravisCI'></a>TravisCI
+### TravisCI
 
 The plugin structure comes with a fully functional .travis.yml file that deploys the testing app on Android emulator and iOS simulator and as a subsequent step runs the tests from [UnitTesting section](#Unittesting). All you have to do, after cloning the repo and implementing your plugin and tests, is to sign up at [https://travis-ci.org/](https://travis-ci.org/). Then enable your plugin's repo on "https://travis-ci.org/profile/<your github user\>" and that's it. Next time a PR is opened or change is committed to a branch TravisCI will trigger a build testing the code.
 
 To properly show current build status you will have to edit the badge at the start of the README.md file so it matches your repo, user and branch. 
 
-### <a name='ReferringtnscoremodulesinthePlugin'></a>Referring tns-core-modules in the Plugin
+### Referring tns-core-modules in the Plugin
 We recommend to use full imports of `tns-core-modules` due to [an issue in Angular CLI](https://github.com/angular/angular-cli/issues/5618#issuecomment-306479219). Read more detailed explanation in [this discussion](https://github.com/NativeScript/nativescript-plugin-seed/pull/32#discussion_r131147787).
 
 Ultimately after the issue in Angular CLI is fixed this would not be a restriction, but till then the recommended approach is to import from `tns-core-modules` using full path. Here is an example:
@@ -176,3 +195,9 @@ import * as app from 'application';
 ````
 import * as app from 'tns-core-modules/application';
 ````
+
+## Contribute
+We love PRs! Check out the [contributing guidelines](CONTRIBUTING.md). If you want to contribute, but you are not sure where to start - look for issues labeled [`help wanted`](https://github.com/NativeScript/tns-core-modules-widgets/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).
+
+## Get Help
+Please, use [github issues](https://github.com/NativeScript/tns-core-modules-widgets/issues) strictly for [reporting bugs](CONTRIBUTING.md#reporting-bugs) or [requesting features](CONTRIBUTING.md#requesting-new-features). For general questions and support, check out the [NativeScript community forum](https://discourse.nativescript.org/) or ask our experts in [NativeScript community Slack channel](http://developer.telerik.com/wp-login.php?action=slack-invitation).

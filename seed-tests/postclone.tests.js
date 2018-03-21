@@ -53,8 +53,8 @@ describe('postclone', function () {
         expect(fs.existsSync(constants.SEED_COPY_LOCATION + "/screenshots")).toBeFalsy();
     });
 
-    it('should delete the seed scripts folder', function () {
-        expect(fs.existsSync(constants.SEED_COPY_LOCATION + "/src/scripts")).toBeFalsy();
+    it('should delete the postclone.js', function () {
+        expect(fs.existsSync(constants.SEED_COPY_LOCATION + "/src/scripts/postclone.js")).toBeFalsy();
     });
 
     it('should delete the seed tests folder', function () {

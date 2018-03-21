@@ -65,7 +65,7 @@ android:
     - sys-img-armeabi-v7a-android-21
 
 install:
-    - echo no | npm install -g nativescript
+    - echo no | npm install -g nativescript@rc
     - tns usage-reporting disable
     - tns error-reporting disable
     

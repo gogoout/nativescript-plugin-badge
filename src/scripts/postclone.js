@@ -178,8 +178,8 @@ function replaceFiles() {
         rimraf(seed_tests_dir, function () {
             console.log('Seed tests removed.');
 
-            // delete scripts folder
-            rimraf.sync(scripts_dir);
+            // delete postclone.js
+            rimraf.sync(scripts_dir + '/postclone.js');
 
             askInitGit();
         });

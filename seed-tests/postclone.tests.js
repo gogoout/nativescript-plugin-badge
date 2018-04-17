@@ -53,6 +53,14 @@ describe('postclone', function () {
         expect(fs.existsSync(constants.SEED_COPY_LOCATION + "/screenshots")).toBeFalsy();
     });
 
+    it('should delete the seed CONTRIBUTING.md', function () {
+        expect(fs.existsSync(constants.SEED_COPY_LOCATION + "/CONTRIBUTING.md")).toBeFalsy();
+    });
+
+    it('should delete the seed CODE_OF_CONDUCT.md', function () {
+        expect(fs.existsSync(constants.SEED_COPY_LOCATION + "/CODE_OF_CONDUCT.md")).toBeFalsy();
+    });
+
     it('should delete the postclone.js', function () {
         expect(fs.existsSync(constants.SEED_COPY_LOCATION + "/src/scripts/postclone.js")).toBeFalsy();
     });

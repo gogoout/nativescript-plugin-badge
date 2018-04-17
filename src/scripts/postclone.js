@@ -179,6 +179,8 @@ function replaceFiles() {
             console.log('Seed tests removed.');
 
             // delete postclone.js
+            rimraf.sync('../CONTRIBUTING.md');
+            rimraf.sync('../CODE_OF_CONDUCT.md');
             rimraf.sync(scripts_dir + '/postclone.js');
 
             askInitGit();

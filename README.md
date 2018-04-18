@@ -74,7 +74,7 @@ What does the seed give you out of the box?
 
 Now you can continue with the development of your plugin by using the [Development setup](#Developmentsetup) described below.
 
-**NOTE**: The plugin seed is update to use the latest version of NativeScript. If you are not ready to upgrade, you can checkout a [tagged version](https://github.com/NativeScript/nativescript-plugin-seed/tags) that is compatible with your NativeScript version.
+**NOTE**: The plugin seed is updated to use the latest version of NativeScript. If you are not ready to upgrade, you can checkout a [tagged version](https://github.com/NativeScript/nativescript-plugin-seed/tags) that is compatible with your NativeScript version.
 
 #### Development setup
 For easier development and debugging purposes continue with the following steps:

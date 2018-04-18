@@ -74,6 +74,8 @@ What does the seed give you out of the box?
 
 Now you can continue with the development of your plugin by using the [Development setup](#Developmentsetup) described below.
 
+**NOTE**: The plugin seed is updated to use the latest version of NativeScript. If you are not ready to upgrade, you can checkout a [tagged version](https://github.com/NativeScript/nativescript-plugin-seed/tags) that is compatible with your NativeScript version.
+
 #### Development setup
 For easier development and debugging purposes continue with the following steps:
 
@@ -82,7 +84,7 @@ For easier development and debugging purposes continue with the following steps:
 
 Now go and make a change to your plugin. It will be automatically applied to the demo project.
 
-NOTE: If you need to use a native library in your plugin or do some changes in Info.plist/AndroidManifest.xml, these cannot be applied to the demo project only by npm link. In such scenario, you need to use `tns plugin add ../src` from the `demo` so that the native libraries and changes in the above-mentioned files are applied in the demo. Then you can link again the code of your plugin in the demo by using `npm run plugin.link` from the `src`.
+**NOTE**: Any changes that you need to make in a native library used in your plugin or in any other files inside `src/platforms` directory such as Info.plist or AndroidManifest.xml can't be directly reflected in the demo app. You need to use `npm run demo.reset` and run the application again.
 
 ### Linking to CocoaPod or Android Arsenal plugins
 
@@ -108,8 +110,8 @@ It's highly recommended to generate typings for the native libraries used in you
 #### Generating typings for iOS
 
 - Run the command for typings generation as explained in the [documentation](https://docs.nativescript.org/runtimes/ios/how-to/Use-Native-Libraries#troubleshooting)
-- Open `demo/typings/x86_64` and copy the `d.ts` files that you plan to use in your plugin to `src\platforms\ios\typings`
-- Open  `src\references.d.ts` and add a reference to each of the files added to `src\platforms\ios\typings`
+- Open `demo/typings/x86_64` and copy the `d.ts` files that you plan to use in your plugin to `src/platforms/ios/typings`
+- Open `src/references.d.ts` and add a reference to each of the files added to `src/platforms/ios/typings`
 
 **NOTE**: Swift APIs that are not exported to Objective-C are not supported. This means that you can only call APIs from JavaScript that are visible to the Objective-C runtime. This include all Objective-C APIs and only the subset of all Swift APIs that are exposed to Objective-C. So, to use a Swift API (class/function/method etc.) from NativeScript, first make sure that it can be used from Objective-C code. For more information which Swfit APIs can be exposed to Objective-C, see [here](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithObjective-CAPIs.html#//apple_ref/doc/uid/TP40014216-CH4-ID53). 
 
@@ -117,12 +119,12 @@ It's highly recommended to generate typings for the native libraries used in you
 
 - Clone [Android DTS Generator repo](https://github.com/NativeScript/android-dts-generator)
 - Follow the steps in the [README](https://github.com/NativeScript/android-dts-generator/blob/master/README.md)
-- Copy the generated d.ts files in `src\platforms\android\typings`. Feel free to rename the generated files for readablity.
-- Open  `src\references.d.ts` and add a reference to each of the files added to `src\platforms\android\typings`
+- Copy the generated d.ts files in `src/platforms/android/typings`. Feel free to rename the generated files for readablity.
+- Open  `src/references.d.ts` and add a reference to each of the files added to `src/platforms/android/typings`
 
 ### Clean plugin and demo files
 
-Sometimes you may need to wipe away the `node_modules` and `demo/platforms` folders to reinstall them fresh.
+Sometimes you may need to wipe away the `src/node_modules`, `demo/node_modules` and `demo/platforms` folders to reinstall them fresh.
 
 * Run `npm run clean` to wipe those clean then you can can run `npm i` to install fresh dependencies.
 

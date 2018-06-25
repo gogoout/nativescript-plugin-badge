@@ -109,7 +109,7 @@ It's highly recommended to generate typings for the native libraries used in you
 
 #### Generating typings for iOS
 
-- Run the command for typings generation as explained in the [documentation](https://docs.nativescript.org/runtimes/ios/how-to/Use-Native-Libraries#troubleshooting)
+- Run the command for typings generation as explained in the [documentation](https://docs.nativescript.org/plugins/Use-Native-iOS-Libraries#troubleshooting)
 - Open `demo/typings/x86_64` and copy the `d.ts` files that you plan to use in your plugin to `src/platforms/ios/typings`
 - Open `src/references.d.ts` and add a reference to each of the files added to `src/platforms/ios/typings`
 

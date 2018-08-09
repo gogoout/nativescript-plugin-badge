@@ -6,7 +6,7 @@ matrix:
     - stage: "Lint"
       language: node_js
       os: linux
-      node_js: "6"
+      node_js: "8"
       script: cd src && npm run ci.tslint && cd ../demo && npm run ci.tslint
     - stage: "Build and Test"
       env: 
@@ -21,10 +21,10 @@ matrix:
     - os: osx
       env: 
         - BuildiOS="11"
-        - Xcode="9.2"
-      osx_image: xcode9.2
+        - Xcode="9.3"
+      osx_image: xcode9.3
       language: node_js 
-      node_js: "6"
+      node_js: "8"
       jdk: oraclejdk8
       script: 
         - cd src && npm i && npm run tsc && cd ../demo
@@ -47,9 +47,9 @@ matrix:
       env:
         - TestVersion="latest"
       language: node_js
-      node_js: "6"
+      node_js: "8"
       jdk: oraclejdk8
-      osx_image: xcode8.3
+      osx_image: xcode9.3
       before_script:
         - cd seed-tests && npm i
       script: travis_wait travis_retry npm run test.ios

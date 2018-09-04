@@ -97,7 +97,7 @@ function askPluginName() {
 }
 
 function generateClassName() {
-    // the class name becomes 'GoogleMaps' when plugin_name is 'google_maps'
+    // the class_name becomes 'GoogleMaps' when plugin_name is 'google-maps'
     class_name = "";
     var plugin_name_parts = inputParams.plugin_name.split("-");
     for (var p in plugin_name_parts) {

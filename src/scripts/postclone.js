@@ -56,7 +56,7 @@ function askGithubUsername() {
         prompt.start();
         prompt.get({
             name: 'github_username',
-            description: 'What is your GitHub username (used for updating package.json)? Example: NathanWalker / EddyVerbruggen'
+            description: 'What is your GitHub username (used for updating package.json)? Example: NathanWalker'
         }, function (err, result) {
             if (err) {
                 return console.log(err);
@@ -97,7 +97,7 @@ function askPluginName() {
 }
 
 function generateClassName() {
-    // the classname becomes 'GoogleMaps' when plugin_name is 'google_maps'
+    // the class name becomes 'GoogleMaps' when plugin_name is 'google_maps'
     class_name = "";
     var plugin_name_parts = inputParams.plugin_name.split("-");
     for (var p in plugin_name_parts) {
@@ -229,8 +229,9 @@ function initGit() {
 }
 
 function finishSetup() {
-    console.log("Configuration finished! If you're not happy with the result please clone the seed again and rerun this script.");
-    console.log("You can now continue by running 'npm run plugin.tscwatch' in this window and in another one - 'npm run demo.ios' or 'npm run demo.android'!");
-
+    console.log("Configuration finished! If you're not happy with the result please clone the seed again and start over.");
+    console.log("Visit the NativeScript documentation for detailed steps on how to proceed from here.");
+    console.log("https://docs.nativescript.org/plugins/building-plugins#step-2-set-up-a-development-workflow");
+    
     process.exit();
 }

@@ -64,10 +64,11 @@ android:
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-21
 
+before_install:
+    - sudo pip install --upgrade pip
+    - sudo pip install six
+
 install:
     - echo no | npm install -g nativescript
     - tns usage-reporting disable
     - tns error-reporting disable
-    - pip install --upgrade pip
-    - pip install six
-    

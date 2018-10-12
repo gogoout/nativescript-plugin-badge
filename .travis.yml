@@ -20,7 +20,7 @@ matrix:
         - travis_wait travis_retry tns build android
     - os: osx
       env: 
-        - BuildiOS="11.0"
+        - BuildiOS="12.0"
         - Xcode="10.0"
       osx_image: xcode10.0
       language: node_js 
@@ -68,4 +68,5 @@ install:
     - echo no | npm install -g nativescript
     - tns usage-reporting disable
     - tns error-reporting disable
+    - pip install six
     

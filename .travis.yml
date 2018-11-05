@@ -10,7 +10,7 @@ matrix:
       script: cd src && npm run ci.tslint && cd ../demo && npm run ci.tslint
     - stage: "Build and Test"
       env: 
-        - BuildAndroid="26"
+        - BuildAndroid="28"
       language: android
       os: linux
       jdk: oraclejdk8
@@ -58,9 +58,8 @@ android:
   components:
     - tools
     - platform-tools
-    - build-tools-27.0.3
-    - android-23
-    - android-26
+    - build-tools-28.0.2
+    - android-28
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-21
 

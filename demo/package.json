@@ -4,7 +4,7 @@
   },
   "dependencies": {
     "nativescript-theme-core": "^1.0.4",
-    "nativescript-unit-test-runner": "^0.3.4",
+    "nativescript-unit-test-runner": "^0.4.1",
     "nativescript-yourplugin": "file:../src",
     "tns-core-modules": "^5.2.0"
   },
@@ -17,7 +17,7 @@
     "nativescript-dev-typescript": "~0.8.0",
     "nativescript-dev-webpack": "~0.20.0",
     "tns-platform-declarations": "^5.2.0",
-    "tslint": "~5.11.0"
+    "tslint": "~5.12.1"
   },
   "scripts": {
     "build.plugin": "cd ../src && npm run build",

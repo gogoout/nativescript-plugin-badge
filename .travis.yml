@@ -38,11 +38,12 @@ matrix:
         - nvm install 8
       before_script:
         - cd seed-tests && npm i
+        - android list targets
         - echo no | android create avd --force -n test -t android-21 -b armeabi-v7a
         - emulator -avd test -no-audio -no-window &
         - android-wait-for-emulator
-      script: travis_wait travis_retry npm run test.android
-      dist: precise
+      script: 
+        - travis_wait travis_retry npm run test.android
     - os: osx
       env:
         - TestVersion="latest"
@@ -59,6 +60,7 @@ android:
     - tools
     - platform-tools
     - build-tools-28.0.3
+    - android-21
     - android-28
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-21

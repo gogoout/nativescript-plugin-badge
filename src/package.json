@@ -10,6 +10,10 @@
             "ios": "5.2.0"
         }
     },
+    "repository": {
+		"type": "git",
+		"url": "https://github.com/YourName/nativescript-yourplugin.git"
+	},
     "scripts": {
         "tsc": "tsc",
         "build": "npm run tsc && npm run build.native",

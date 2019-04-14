@@ -1,6 +1,8 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
-  xmlns:ui="nativescript-yourplugin">
-  <StackLayout class="p-20">
-    <Label text="{{ message }}" class="t-20 text-center c-black" textWrap="true"/>
-  </StackLayout>
+      xmlns:ui="nativescript-yourplugin">
+    <StackLayout class="p-20">
+        <Label text="{{ message }}" class="t-20 text-center c-black" textWrap="true"/>
+        <Button tap="{{ setBadgeTo5 }}" text="Set Badge to 5"></Button>
+        <Button tap="{{ removeBadge }}" text="Clear Badges"></Button>
+    </StackLayout>
 </Page>

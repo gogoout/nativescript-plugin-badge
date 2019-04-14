@@ -1,11 +1,17 @@
 {
   "nativescript": {
-    "id": "org.nativescript.demo"
+    "id": "org.nativescript.demo",
+    "tns-ios": {
+      "version": "5.2.0"
+    },
+    "tns-android": {
+      "version": "5.2.1"
+    }
   },
   "dependencies": {
     "nativescript-theme-core": "^1.0.4",
     "nativescript-unit-test-runner": "^0.4.1",
-    "nativescript-yourplugin": "file:../src",
+    "nativescript-plugin-badge": "file:../src",
     "tns-core-modules": "^5.0.0"
   },
   "devDependencies": {

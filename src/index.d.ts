@@ -1,6 +1,9 @@
-import { Common } from './yourplugin.common';
-export declare class YourPlugin extends Common {
-  // define your typings manually
-  // or..
-  // take the ios or android .d.ts files and copy/paste them here
-}
+export {Notification} from './badge.common';
+
+export function requestPremissions(): Promise<boolean>;
+
+export function setBadge(badge: number);
+
+export function removeBadge();
+
+export function applyNotification(notification: Notification, badge: number, channelId?: string);
